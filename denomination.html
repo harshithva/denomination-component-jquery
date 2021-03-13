@@ -1,0 +1,141 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Rupees</th>
+                <th scope="col">No of Unit</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>₹1</td>
+                <td><input value="0" type="text" class="denomination" id="one" /></td>
+                <td> <input value="0" type="text" id="oneTotal" disabled /></td>
+            </tr>
+            <tr>
+                <td>₹2</td>
+                <td><input value="0" type="text" class="denomination" id="two" /></td>
+                <td> <input value="0" type="text" id="twoTotal" disabled /></td>
+            </tr>
+            <tr>
+                <td>₹5</td>
+                <td><input value="0" type="text" class="denomination" id="five" /></td>
+                <td> <input value="0" type="text" id="fiveTotal" disabled /></td>
+            </tr>
+            <tr>
+                <td>₹10</td>
+                <td><input value="0" type="text" class="denomination" id="ten" /></td>
+                <td> <input value="0" type="text" id="tenTotal" disabled /></td>
+            </tr>
+            <tr>
+                <td>₹20</td>
+                <td><input value="0" type="text" class="denomination" id="twenty" /></td>
+                <td> <input value="0" type="text" id="twentyTotal" disabled /></td>
+
+            </tr>
+            <tr>
+                <td>₹50</td>
+                <td><input value="0" type="text" class="denomination" id="fifty" /></td>
+                <td> <input value="0" type="text" id="fiftyTotal" disabled /></td>
+
+            </tr>
+            <tr>
+                <td>₹100</td>
+                <td><input value="0" type="text" class="denomination" id="hundred" /></td>
+                <td> <input value="0" type="text" id="hundredTotal" disabled /></td>
+
+            </tr>
+            <tr>
+                <td>₹500</td>
+                <td><input value="0" type="text" class="denomination" id="fiveHundred" /></td>
+                <td> <input value="0" type="text" id="fiveHundredTotal" disabled /></td>
+
+            </tr>
+            <tr>
+                <td>₹2000</td>
+                <td><input value="0" type="text" class="denomination" id="twoThousand" /></td>
+                <td> <input value="0" type="text" id="twoThousandTotal" disabled /></td>
+
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td><input value="0" type="text" id="total" disabled /></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    $('#one').keyup(function (e) {
+
+        $('#oneTotal').val(e.target.value * 1)
+    });
+
+    $('#two').keyup(function (e) {
+
+        $('#twoTotal').val(e.target.value * 2)
+    });
+
+    $('#five').keyup(function (e) {
+
+        $('#fiveTotal').val(e.target.value * 5)
+    });
+
+    $('#ten').keyup(function (e) {
+
+        $('#tenTotal').val(e.target.value * 10)
+    });
+
+    $('#twenty').keyup(function (e) {
+
+        $('#twentyTotal').val(e.target.value * 20)
+    });
+
+    $('#fifty').keyup(function (e) {
+
+        $('#fiftyTotal').val(e.target.value * 50)
+    });
+
+    $('#hundred').keyup(function (e) {
+
+        $('#hundredTotal').val(e.target.value * 100)
+    });
+
+    $('#fiveHundred').keyup(function (e) {
+
+        $('#fiveHundredTotal').val(e.target.value * 500)
+    });
+    $('#twoThousand').keyup(function (e) {
+
+        $('#twoThousandTotal').val(e.target.value * 2000)
+    });
+
+
+    $('.denomination').keyup(function () {
+
+        var total = +$('#oneTotal').val() +
+
+            +$('#twoTotal').val() +
+
+            +$('#fiveTotal').val() +
+
+            +$('#tenTotal').val() +
+
+            +$('#twentyTotal').val() +
+
+            +$('#fiftyTotal').val() +
+
+            +$('#hundredTotal').val() +
+
+            +$('#fiveHundredTotal').val() +
+
+            +$('#twoThousandTotal').val();
+
+        $('#total').val(total)
+
+        $('#closing_note').html(`Total Amount - ${total}`);
+
+    });
+</script>
