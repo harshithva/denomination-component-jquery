@@ -47,6 +47,12 @@
 
             </tr>
             <tr>
+                <td>₹200</td>
+                <td><input value="0" type="text" class="denomination" id="twohundred" /></td>
+                <td> <input value="0" type="text" id="twohundredTotal" disabled /></td>
+
+            </tr>
+            <tr>
                 <td>₹500</td>
                 <td><input value="0" type="text" class="denomination" id="fiveHundred" /></td>
                 <td> <input value="0" type="text" id="fiveHundredTotal" disabled /></td>
@@ -68,74 +74,92 @@
     </table>
 </div>
 <script>
-    $('#one').keyup(function (e) {
+    $('#one').keyup(function(e){
+       
+       $('#oneTotal').val(e.target.value * 1)
+   });
 
-        $('#oneTotal').val(e.target.value * 1)
-    });
+    $('#two').keyup(function(e){
+       
+       $('#twoTotal').val(e.target.value * 2)
+   });
 
-    $('#two').keyup(function (e) {
+    $('#five').keyup(function(e){
+       
+       $('#fiveTotal').val(e.target.value * 5)
+   });
 
-        $('#twoTotal').val(e.target.value * 2)
-    });
+    $('#ten').keyup(function(e){
+       
+       $('#tenTotal').val(e.target.value * 10)
+   });
 
-    $('#five').keyup(function (e) {
+    $('#twenty').keyup(function(e){
+       
+       $('#twentyTotal').val(e.target.value * 20)
+   });
 
-        $('#fiveTotal').val(e.target.value * 5)
-    });
+    $('#fifty').keyup(function(e){
+       
+       $('#fiftyTotal').val(e.target.value * 50)
+   });
 
-    $('#ten').keyup(function (e) {
+    $('#hundred').keyup(function(e){
+       
+       $('#hundredTotal').val(e.target.value * 100)
+   });
+    $('#twohundred').keyup(function(e){
+       
+       $('#twohundredTotal').val(e.target.value * 200)
+   });
 
-        $('#tenTotal').val(e.target.value * 10)
-    });
+    $('#fiveHundred').keyup(function(e){
+       
+       $('#fiveHundredTotal').val(e.target.value * 500)
+   });
+    $('#twoThousand').keyup(function(e){
+       
+       $('#twoThousandTotal').val(e.target.value * 2000)
+   });
+  
 
-    $('#twenty').keyup(function (e) {
+    $('.denomination').keyup(function(){
 
-        $('#twentyTotal').val(e.target.value * 20)
-    });
+var total = +$('#oneTotal').val() +
 
-    $('#fifty').keyup(function (e) {
++$('#twoTotal').val() +
 
-        $('#fiftyTotal').val(e.target.value * 50)
-    });
++$('#fiveTotal').val() +
+   
+ +$('#tenTotal').val() + 
 
-    $('#hundred').keyup(function (e) {
+ +$('#twentyTotal').val() +
 
-        $('#hundredTotal').val(e.target.value * 100)
-    });
+ +$('#fiftyTotal').val() +
 
-    $('#fiveHundred').keyup(function (e) {
+ +$('#hundredTotal').val() +
 
-        $('#fiveHundredTotal').val(e.target.value * 500)
-    });
-    $('#twoThousand').keyup(function (e) {
+ +$('#twohundredTotal').val() +
 
-        $('#twoThousandTotal').val(e.target.value * 2000)
-    });
+ +$('#fiveHundredTotal').val() +
 
+ +$('#twoThousandTotal').val();
 
-    $('.denomination').keyup(function () {
+      $('#total').val(total)
+    
 
-        var total = +$('#oneTotal').val() +
-
-            +$('#twoTotal').val() +
-
-            +$('#fiveTotal').val() +
-
-            +$('#tenTotal').val() +
-
-            +$('#twentyTotal').val() +
-
-            +$('#fiftyTotal').val() +
-
-            +$('#hundredTotal').val() +
-
-            +$('#fiveHundredTotal').val() +
-
-            +$('#twoThousandTotal').val();
-
-        $('#total').val(total)
-
-        $('#closing_note').html(`Total Amount - ${total}`);
-
-    });
+        $('#closing_note').html(`Total Amount - ${total} |
+        One Rupees - ${$('#one').val()} |
+        Two Rupees - ${$('#two').val()} |
+        Five Rupees - ${$('#five').val()} |
+        Ten Rupees - ${$('#ten').val()} |
+        Twenty Rupees - ${$('#twenty').val()} |
+        Fifty Rupees - ${$('#fifty').val()} |
+        Hundred Rupees - ${$('#hundred').val()} |
+        Two Hundred Rupees - ${$('#twohundred').val()} |
+        Five Hundred Rupees - ${$('#fiveHundred').val()} |
+        Two Thousand Rupees - ${$('#twoThousand').val()}
+        `);
+    
+   });
 </script>
